@@ -1,0 +1,49 @@
+1.Create Components folder in src folder
+2.Rt click on components folder
+3.Add file Cards.jsx
+	In side the card
+	rcc-->React class component
+	div--> React.Fragment
+	.container
+	 .row
+	    .col-md-4
+		.card
+		   img
+		   .card-body
+			p.lead-->lorem2o
+			button 
+4.Import Cards class in App.jsx
+=========================================================================
+1.props :  In order to transfer the data from parent component to child
+           component we use props.
+	   In order to Access props we use 
+	   this.state.props in child component
+	
+	   Example :
+		====Parent Component=====
+		name = "kiran"
+		age ="20"
+		contanct = "123455"
+
+		====In child component=====
+		this.props.name
+		this.props.age
+		this.props.contact
+	
+	   
+
+2.state
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
