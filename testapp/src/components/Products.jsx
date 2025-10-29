@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Proucts extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             product:{
                 id:"1A04501",
@@ -14,8 +13,26 @@ class Proucts extends Component {
             }
         };
     }
-     
-
+   
+    incr=()=>{
+ 
+        this.setState({
+            product:{
+                ...this.state.product,
+                qty:this.state.product.qty+1
+            }
+        })
+    }
+    decr=()=>{
+ 
+        this.setState({
+            product:{
+                ...this.state.product,
+                qty:this.state.product.qty-1 > 0 ?this.state.product.qty-1:0
+            }
+        })
+    }     
+    
     render() { 
         return (
             <React.Fragment>
@@ -33,8 +50,8 @@ class Proucts extends Component {
                         </thead>
                         <tbody className='text-center'>
                             <tr>
-                                <td>{this.state.product.id}</td>
-                                <td>{this.state.product.name}</td>
+                                <td className='font-weight-bold'>{this.state.product.id}</td>
+                                <td className='font-weight-bold'>{this.state.product.name}</td>
                                 <td>
                                     <img src={this.state.product.img} alt=""
                                     width={'50px'}
@@ -42,9 +59,21 @@ class Proucts extends Component {
                                     />
 
                                 </td>
-                                <td>{this.state.product.price}</td>
-                                <td>{this.state.product.qty}</td>
-                                <td>{this.state.product.qty * this.state.product.price}</td>
+                                <td className='font-weight-bold'> &#8377;{this.state.product.price} </td>
+                                <td className='font-weight-bold'>
+                                   
+                                   
+
+                                <i className='fa fa-plus-circle fa-1x text-primary mr-3' onClick={this.incr}/>
+
+                                    {this.state.product.qty}
+
+                                <i className='fa fa-minus-circle fa-1x text-danger ml-3' onClick={this.decr}/>
+
+                                    
+                                   
+                                </td>
+                                <td className='font-weight-bold'> &#8377; {this.state.product.qty * this.state.product.price}</td>
                             </tr>
                         </tbody>
                     </table>
