@@ -8,6 +8,7 @@ class Child extends Component {
                     <div className="card">
                         <div className="card-body bg-secondary">
                             <p className="h1 text-center text-danger">Child</p>
+                            <p className="h3 text-center">Message : {this.props.msg}</p>
                         </div>
                     </div>
                 </div>
