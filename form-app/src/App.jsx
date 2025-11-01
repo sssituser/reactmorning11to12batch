@@ -1,20 +1,34 @@
-import React, { Component } from 'react';
-import FormsComponent from './components/FormsComponent';
-import Test from './components/Test';
-class App extends Component {
-  render() { 
-    return (
-      <React.Fragment>
-       <div className="container">
-        <Test/>
-        <FormsComponent/>
+import React, { useState } from "react";
+export default function App(){
 
-        
-       </div>
-        
-      </React.Fragment>
-    );
-  }
+  let[count,setCount]=useState(0);
+
+  let[msg,setMsg] = useState("Welcome To React")
+
+  let[employee,setEmployee]=useState({
+    employee:{
+      eid:111,
+      ename:"kiran",
+      esla:50000
+    }
+  })
+
+  return(
+    <React.Fragment>
+        <div className="container text-center">
+
+            <p className="h2">
+              Count : {count}
+            </p>
+
+            <p className="h2">
+              Message : {msg}
+            </p>
+            <p className="h2">
+              Employee :{JSON.stringify(employee)}
+            </p>
+
+        </div>
+    </React.Fragment>
+  )
 }
- 
-export default App;
