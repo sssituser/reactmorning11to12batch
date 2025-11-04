@@ -1,14 +1,13 @@
 import React,{useState} from "react";
 
 export default function Test(){
-
     let[employee,setEmployee]=useState(
         {
             
-                eid:111,
-                ename:"abc",
-                esal:50000,
-                dept:"Development"
+                eid:"",
+                ename:"",
+                esal:"",
+                dept:""
             
         }
     );
@@ -19,12 +18,15 @@ export default function Test(){
             [event.target.name]:event.target.value
         })        
     }
-
+    function save(evnet){
+        evnet.preventDefault()
+       alert(JSON.stringify(employee))
+    }
 
     return(
         <React.Fragment>
             <p className="h4 text-center text-danger">Test Functional Component</p>
-            <p>{JSON.stringify(employee)}</p>
+            
         
             <div className="container text-center">
                 <div className="row">
@@ -34,9 +36,10 @@ export default function Test(){
                                 <p className="h1">Register Here</p>
                             </div>
                             <div className="card-body">
-                                <form action="">
+
+                                <form action="" onSubmit={save}>
                                     <div className="form-group">
-                                    <input type="text" name='eid' value={employee.eid} 
+                                    <input type="number" name='eid' value={employee.eid} 
                                     placeholder="Employee id"
                                     className="form-control"
                                     onChange={updateInput}
@@ -46,19 +49,23 @@ export default function Test(){
                                     <input type="text" name='ename' value={employee.ename} 
                                     placeholder="Employee Name"
                                     className="form-control"
+                                    onChange={updateInput}
                                     />
                                     </div>
                                     <div className="form-group">
-                                    <input type="text" name='esal' value={employee.esal} 
+                                    <input type="number" name='esal' value={employee.esal} 
                                     placeholder="Employee Salary"
                                     className="form-control"
+                                    onChange={updateInput}
                                     />
                                     
                                     </div>
 
                                     <div className="form-group">
                                     <input type="text" name='dept' value={employee.dept} 
-                                    placeholder="Department" className="form-control"/>
+                                    placeholder="Department" className="form-control"
+                                    onChange={updateInput}
+                                    />
                                     </div>
                                     <button className="btn btn-sm btn-outline-primary">Register</button>
                                 </form>
