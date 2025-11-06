@@ -2,3 +2,8 @@
 .btn-primary,.bg-primary{
     background: linear-gradient(45deg,black,blue);
 }
+
+li:hover{
+    background-color: blueviolet;
+    border-radius: 40%;
+}
