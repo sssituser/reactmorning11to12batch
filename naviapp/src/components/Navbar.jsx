@@ -22,6 +22,14 @@ export default function Navbar(){
                             <Link to='/contact' className="nav-link text-white" >Contact</Link>
                         </li>
                     </ul>
+                     <ul className="navbar-nav">
+                    <li>
+                        <Link to='/contact' className="nav-link text-white" >Contact</Link>
+                    </li>
+                    <li>
+                        <Link to='/contact' className="nav-link text-white" >About</Link>
+                    </li>
+                </ul>
                 </div>
             </nav>
         </React.Fragment>

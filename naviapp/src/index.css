@@ -1,9 +1,15 @@
 
 .btn-primary,.bg-primary{
-    background: linear-gradient(45deg,black,blue);
+    background: linear-gradient(45deg,rgb(10, 26, 173),blue);
 }
 
 li:hover{
-    background-color: blueviolet;
+    background-color: rgb(212, 71, 6);
     border-radius: 40%;
+    transform: scale(1.2);
+    font-weight: bold;
+    
+}
+b{
+    font-size: x-large;
 }
