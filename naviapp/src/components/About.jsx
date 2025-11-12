@@ -5,7 +5,9 @@ export default function About(){
 
 
   const  [users,setUsers]=useState([]);
-  const  [search,setSearch] = useState("");
+ 
+  const  [search,setSearch] = useState("");// 1.step for searching
+
 
     useEffect(()=>{
         axios.get("https://jsonplaceholder.typicode.com/users")
@@ -16,7 +18,7 @@ export default function About(){
         })
     },[])
 
-    const filteredUsers = users.filter((user)=>`${user.id}${user.name}${user.username}`.toLowerCase().includes(search.toLowerCase()));
+const filteredUsers = users.filter((user)=>`${user.id}${user.name}${user.username}`.toLowerCase().includes(search.toLowerCase()));
 
     return(
         <React.Fragment>
@@ -28,7 +30,11 @@ export default function About(){
                     <button className="btn btn-success btn-md">Add User</button>
                     </div>
                     <div className="col-md-4">
-                        <input type="text" name="search" value={search} onChange={(e)=>{setSearch(e.target.value)}} className="form-control" placeholder="Enter ur Data" />
+
+                        <input type="text" name="search" value={search} 
+                        onChange={(event)=>{setSearch(event.target.value)}} 
+                        className="form-control" placeholder="Enter ur Data" />
+
                     </div>
                 </div>
            
@@ -44,7 +50,9 @@ export default function About(){
  <div className="row">
             <div className="col">
                 {
-                    filteredUsers.length >0 ?
+        filteredUsers.length >0 ? 
+
+
                     <div className="container">
                         <table className="table table-bordered table-striped table-hover">
                         <thead className="text-center bg-danger text-white">

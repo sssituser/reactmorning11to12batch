@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import Test from './components/Test';
-import MessageCard from './components/MessageCard';
-import Employee from './components/Employee';
+
+import Employees from './components/Employees';
+import AddEmployee from './components/AddEmployee';
 class App extends Component {
   render() { 
     return (
       <React.Fragment>
-        <Test/>
-        <Employee/>
+       <div className="container mt-5">
+          <AddEmployee/>
+          
+       </div>
       </React.Fragment>
     );
   }

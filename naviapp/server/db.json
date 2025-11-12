@@ -1,0 +1,25 @@
+{
+
+    "employees":[
+        {
+            "id":111,
+            "ename":"abc",
+            "esal":5000
+        }
+    ],
+
+    "users":[
+        {
+                "id":"1234",
+                "username":"abc",
+                "password":"1234"
+        },
+        {
+                "id":"1234",
+                "username":"abc",
+                "password":"1234"
+        }
+    ]
+
+
+}
