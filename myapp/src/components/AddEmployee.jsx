@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function AddEmployee(){
 
 
@@ -9,6 +10,7 @@ export default function AddEmployee(){
         sal:""
     })
 
+    let navigate=useNavigate();
     function updateInput(event){
         setEmployee({
             ...employee,
@@ -20,6 +22,7 @@ export default function AddEmployee(){
         event.preventDefault();
        axios.post("http://localhost:9000/employees",employee).then(()=>{
         alert("Record added...")
+        navigate('/')
        }).catch((error)=>{
         alert(error)
        })
@@ -49,8 +52,9 @@ export default function AddEmployee(){
                                         value={employee.sal} placeholder="Enter Salary" name="sal" className="form-control" />
                                     </div>
                                     <button className="btn btn-sm btn-primary">Register</button>
+                                    <Link to='/' className="btn btn-outline-primary btn-sm float-right">Employees</Link>
                                 </form>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>

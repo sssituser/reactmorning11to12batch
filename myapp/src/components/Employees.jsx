@@ -1,13 +1,37 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Employees(){
     let[employees,setEmployees] = useState([]);
-
+    let navigate=useNavigate();
    useEffect(()=>{
-    axios.get("http://localhost:9000/employees").then((res)=>{
+   getEmployees()
+   },[])
+
+   function getEmployees(){
+     axios.get("http://localhost:9000/employees").then((res)=>{
         setEmployees(res.data)
     }).catch((error)=>{alert(error)})
-   },[])
+   }
+   function del(id){
+    axios.delete("http://localhost:9000/employees/"+id)
+    .then(()=>{
+        alert("Record deleted")
+        getEmployees()
+
+    }).catch((error)=>{
+        alert(error)
+    })
+   }
+
+
+
+
+
+
+
+
 
    return(
     <React.Fragment>
@@ -18,7 +42,7 @@ export default function Employees(){
             <div className="row">
                 
                 <div className="col-md-8">
-                        <a href="#" className="btn btn-primary btn-sm">Add Employee</a>
+                        <Link to="/add" className="btn btn-primary btn-sm">Add Employee</Link>
                 </div>
                
                
@@ -42,6 +66,7 @@ export default function Employees(){
                                 <th><b>ID</b></th>
                                 <th><b>Name</b></th>
                                 <th><b>Salary</b></th>
+                                 <th><b>Operations</b></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,6 +77,21 @@ export default function Employees(){
                                             <td><b>{emp.id}</b></td>
                                             <td><b>{emp.name}</b></td>
                                             <td><b>{emp.sal}</b></td>
+                                            <td>
+
+                                            <Link to='/edit' className="mr-3">
+                                                <i className="fa fa-pen text-primary fa-1x"/>
+                                            </Link>
+                                           
+                                                <i className="fa fa-trash  text-danger mr-3"
+                                                 onClick={()=>{del(emp.id)}}
+                                                />
+                                            
+                                            <Link to='/view'>
+                                             <i className="fa fa-eye text-info"/>
+                                            </Link>
+
+                                            </td>
                                         </tr>
                                     )
                                 })
