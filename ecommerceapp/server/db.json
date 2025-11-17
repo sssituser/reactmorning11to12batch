@@ -1,18 +1,25 @@
 {
   "products": [
     {
-      "id": 111,
-      "pname": "abc",
-      "pprice": 500,
-      "pqty": 10,
-      "pimage": "https://png.pngtree.com/png-vector/20210602/ourlarge/pngtree-3d-beauty-cosmetics-product-design-png-image_3350326.jpg"
+      "id": "111",
+      "pname": "Cobra",
+      "pprice": "4000",
+      "pqty": "4",
+      "pimage": "https://shop.finebuy.co.in/wp-content/uploads/2023/06/cobra-700x652.webp"
     },
     {
       "id": "07c6",
       "pname": "oppo mobile",
       "pprice": "25000",
       "pqty": "10",
-      "pimage": "https://wallpaperaccess.com/full/4392124.jpg"
+      "pimage": "https://th.bing.com/th/id/OIP.ONxvkF-dYxr4t_8e27Bs9QEsCo?w=333&h=187&c=7&r=0&o=7&dpr=1.1&pid=1.7&rm=3"
+    },
+    {
+      "id": "e58f",
+      "pname": "Vivo",
+      "pprice": "85000",
+      "pqty": "6",
+      "pimage": "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1677136564513/61700a6c726f389ef4ae2b1662ce6783.png"
     }
   ]
 }

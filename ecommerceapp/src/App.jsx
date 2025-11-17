@@ -11,8 +11,8 @@ export default function App(){
       <Routes>
         <Route path="/" element={<ProductList/>}/>
         <Route path="/add" element={<AddProduct/>}/>
-        <Route path="/view" element={<ShowProduct/>}/>
-        <Route path="/edit" element={<EditProduct/>}/>
+        <Route path="/view/:id" element={<ShowProduct/>}/>
+        <Route path="/edit/:id" element={<EditProduct/>}/>
       </Routes>
      </BrowserRouter>
     </React.Fragment>

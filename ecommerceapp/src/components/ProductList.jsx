@@ -37,22 +37,22 @@ useEffect(()=>{
                 products.length > 0 ?
                 
                 <table className="table table-bordered table-striped text-center">
-                    <thead>
+                    <thead className="bg-primary text-white">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Qty</th>
-                            <th>Total</th>
-                            <th>Operations</th>
+                            <th><b>ID</b></th>
+                            <th><b>Name</b></th>
+                            <th><b>Image</b></th>
+                            <th><b>Price</b></th>
+                            <th><b>Quantity</b></th>
+                            <th><b>Total</b></th>
+                            <th><b>Operations</b></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             products.map((prod)=>{
                                 return(
-                                    <tr>
+                                    <tr key={prod.id}>
                                         <td>{prod.id}</td>
                                         <td>{prod.pname}</td>
                                         <td><img src={prod.pimage} className="img-fluid" width={50} height={50}/></td>
@@ -60,7 +60,13 @@ useEffect(()=>{
                                         <td>{prod.pqty}</td>
                                         <td>{prod.pqty*prod.pprice}</td>
                                         <td>
-                                            <i className="fa fa-eye text-primary mr-3" />
+                                          
+                                           <Link to={`/view/${prod.id}`}>
+                                            <i className="fa fa-eye"/>
+                                           </Link>
+
+
+
                                             <i className="fa fa-pen text-warning mr-3"/>
                                             <i className="fa fa-trash text-danger mr-3"/>
                                         </td>
