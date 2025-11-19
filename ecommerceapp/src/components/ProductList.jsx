@@ -85,7 +85,7 @@ const filteredProducts = products
                                         <td><img src={prod.pimage} className="img-fluid" width={50} height={50}/></td>
                                         <td>&#8377;{Number(prod.pprice).toFixed(2)}</td>
                                         <td>{prod.pqty}</td>
-                                        <td> &#8377;{(prod.pqty*prod.pprice).toFixed(2)} </td>
+                                        <td>&#8377;{(prod.pqty*prod.pprice).toFixed(2)} </td>
                                         <td>
                                           
                                           <Link to={`/view/${prod.id}`}>
