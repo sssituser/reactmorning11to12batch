@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 export default function AddProduct(){
+    let navi=useNavigate();
     let[product,setProduct]=useState({
         pname:"",
         pprice:"",
@@ -18,10 +19,12 @@ function updateInput(event){
        }
     )
 }
-function save(){
+function save(event){
+    event.preventDefault()
     axios.post("http://localhost:9000/products",product)
     .then(()=>{
         alert("Product Added")
+        navi('/')
     }).catch((error)=>{alert(error)})
 }
 

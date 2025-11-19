@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 export default function ProductList(){
 let[products,setProducts]=useState([]);
+let navi = useNavigate();
 useEffect(()=>{
+   prodlist()
+},[])
+
+function prodlist(){
     axios.get("http://localhost:9000/products")
     .then((res)=>{
         setProducts(res.data)
@@ -12,7 +17,17 @@ useEffect(()=>{
     .catch((error)=>{
         alert(error)
     })
-},[])
+}
+    function delProduct(id){
+        axios.delete(`http://localhost:9000/products/${id}`)
+        .then(()=>{
+            alert("Product deleted...")
+            prodlist()
+        })
+        .catch((error)=>{
+            alert(error)
+        })
+    }
 
     return(
         <React.Fragment>
@@ -56,19 +71,25 @@ useEffect(()=>{
                                         <td>{prod.id}</td>
                                         <td>{prod.pname}</td>
                                         <td><img src={prod.pimage} className="img-fluid" width={50} height={50}/></td>
-                                        <td>{prod.pprice}</td>
+                                        <td>&#8377;{Number(prod.pprice).toFixed(2)}</td>
                                         <td>{prod.pqty}</td>
-                                        <td>{prod.pqty*prod.pprice}</td>
+                                        <td> &#8377;{(prod.pqty*prod.pprice).toFixed(2)} </td>
                                         <td>
                                           
-                                           <Link to={`/view/${prod.id}`}>
-                                            <i className="fa fa-eye"/>
-                                           </Link>
+                                          <Link to={`/view/${prod.id}`}>
+                                            <i className="fa fa-eye fa-2x mr-3 text-primary"/>
+                                          </Link>
 
+                                          <Link to={`/edit/${prod.id}`}>
+                                            <i className="fa fa-pen fa-2x text-secondary"/>
+                                          </Link>
 
-
-                                            <i className="fa fa-pen text-warning mr-3"/>
-                                            <i className="fa fa-trash text-danger mr-3"/>
+                                          <Link onClick={()=>{delProduct(prod.id)}}>
+                                            <i  className="fa fa-trash fa-2x text-danger ml-3"/>
+                                          </Link>
+                                          
+                                            
+                                            
                                         </td>
                                     </tr>
                                 )

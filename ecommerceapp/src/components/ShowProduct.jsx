@@ -1,64 +1,61 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams,Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useParams,Link } from 'react-router-dom'
+
 
 export default function ShowProduct(){
-    const {id} = useParams();
-
-    const[product,setProduct]=useState({});
-
-
-
+    let {id} = useParams();
+    let[product,setProduct] = useState({});
     useEffect(()=>{
         axios.get(`http://localhost:9000/products/${id}`)
         .then((res)=>{
             setProduct(res.data)
         })
-        .catch((error)=>{
-            alert(error)
-        })
-    },[])
+        .catch((error)=>{alert(error)})
+
+    },[]);
+
+
+    
+
 
 
     return(
         <React.Fragment>
-            <p className="h3 text-primary text-center">Show Product :<b>{id}</b></p>
             <div className="container">
-                <div className="card">
-                    <div className="card-header text-center bg-secondary text-white">
-                        <p className="h1">Product Info</p>
-                    </div>
-                    <div className="card-body">
-                        <div className="row">
-                           
-                            <div className="col-md-4">
-                                <img src={product.pimage} height={200} width={200} className="img-thumbnail img-fluid"/>
+               
+                <div className="row mt-5">
+                    <div className="col-md-5">
+                        <div className="card">
+                            <div className="card-header text-center bg-secondary text-white">
+                                <p className="h3">Product Information</p>
                             </div>
-                             <div className="col-md-8 mt-0">
-                                <ul className="list-group">
-                                    <li className="list-group-item">
-                                     ID : {product.id}
+                            <div className="card-body">
+                                <ul className='list-group'>
+                                    <li className='list-group-item'>
+                                        <p className="h4">Product Name <b>{product.pname}</b></p>
                                     </li>
-                                    <li className="list-group-item">
-                                     Name : {product.pname}
+                                     <li className='list-group-item'>
+                                        <p className="h4">Product Price <b>&#8377; {Number(product.pprice).toFixed(2)}</b></p>
                                     </li>
-                                    <li className="list-group-item">
-                                     Price : {product.pprice}
+                                     <li className='list-group-item'>
+                                        <p className="h4">Quantity <b>{product.pqty}pcs</b></p>
                                     </li>
-                                    <li className="list-group-item">
-                                     Quantity : {product.pqty}
+                                    <li className='list-group-item text-center'>
+                                        <img src={product.pimage} alt="" className='img-fluid' height={200} width={200} />
                                     </li>
                                 </ul>
                             </div>
+                            <div className="card-footer">
+                                 <Link to={`/edit/${product.id}`} className='btn btn-sm btn-outline-amber'>
+                                    Edit
+                                </Link>
+                                <Link to='/' className="btn btn-sm btn-outline-secondary float-right">
+                                    Back
+                                </Link>
+                               
+                            </div>
                         </div>
-                    </div>
-                    <div className="card-footer">
-                        <Link to='/'> 
-                        <i className="fa fa-arrow-alt-circle-left fa-3x"/>
-                        </Link>
-                        <Link to={`/edit/${product.id}`}>
-                         <i className="fa fa-square-pen fa-3x float-right"/>
-                        </Link>
                     </div>
                 </div>
             </div>
