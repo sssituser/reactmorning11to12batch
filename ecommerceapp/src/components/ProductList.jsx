@@ -4,11 +4,11 @@ import { Link,useNavigate } from "react-router-dom";
 
 export default function ProductList(){
 let[products,setProducts]=useState([]);
+let[search,setSearch]=useState("");
 let navi = useNavigate();
 useEffect(()=>{
    prodlist()
 },[])
-
 function prodlist(){
     axios.get("http://localhost:9000/products")
     .then((res)=>{
@@ -29,6 +29,16 @@ function prodlist(){
         })
     }
 
+const filteredProducts = products
+
+.filter((prod)=>`${prod.id}${prod.pname}${prod.pqty}`
+
+.toLowerCase().includes(search.toLowerCase()))
+
+
+
+
+
     return(
         <React.Fragment>
             <section>
@@ -42,14 +52,16 @@ function prodlist(){
                             <Link to='/add' className="btn btn-primary btn-sm">Add</Link>
                         </div>
                         <div className="col-md-4">
-                            <input type="text" className="form-control" placeholder="ID/Name/Price"/>
+                            <input type="text"
+                            onChange={(event)=>{setSearch(event.target.value)}}
+                            name="search" value={search} className="form-control" placeholder="ID/Name/Price"/>
                         </div>
                     </div>
                 </div>
             </section>
           <div className="container mt-5">
               {
-                products.length > 0 ?
+                filteredProducts.length > 0 ?
                 
                 <table className="table table-bordered table-striped text-center">
                     <thead className="bg-primary text-white">
@@ -65,7 +77,7 @@ function prodlist(){
                     </thead>
                     <tbody>
                         {
-                            products.map((prod)=>{
+                            filteredProducts.map((prod)=>{
                                 return(
                                     <tr key={prod.id}>
                                         <td>{prod.id}</td>
