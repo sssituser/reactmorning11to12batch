@@ -1,14 +1,15 @@
-import React from "react";
-import Counter from "./components/Counter";
-import Wish from "./components/Wish";
-
-
+import React, { useState } from "react";
+import Parent from "./components/Parent";
 export default function App(){
+  
+   let[msg,setMsg]=useState("Welcome to SSSIT");
   return(
     <React.Fragment>
-        <p className="h1 text-center">AppComponent</p>
-        <Counter/>
-        <Wish/>
+      <div className="container text-center">
+          <p className="h1 text-danger">App component : {msg}</p>
+          <Parent message={msg}/>
+      </div>
     </React.Fragment>
+    
   )
 }
