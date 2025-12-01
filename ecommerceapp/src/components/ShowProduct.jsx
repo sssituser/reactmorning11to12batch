@@ -47,10 +47,10 @@ export default function ShowProduct(){
                                 </ul>
                             </div>
                             <div className="card-footer">
-                                 <Link to={`/edit/${product.id}`} className='btn btn-sm btn-outline-amber'>
+                                 <Link to={`/edit/${product.id}`} style={{borderRadius:10}} className='btn btn-md btn-outline-amber'>
                                     Edit
                                 </Link>
-                                <Link to='/' className="btn btn-sm btn-outline-secondary float-right">
+                                <Link to='/' style={{borderRadius:10}} className="btn btn-md btn-outline-secondary float-right">
                                     Back
                                 </Link>
                                

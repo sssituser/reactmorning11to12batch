@@ -71,8 +71,8 @@ export default function EditProduct(){
                                         onChange={updateInput}
                                         name="pqty" value={prod.pqty} className='form-control' />
                                     </div>
-                                        <button className='btn btn-sm btn-secondary'>Save</button>
-                                        <Link to='/' className="btn btn-sm btn-primary float-right">
+                                        <button style={{borderRadius:10}} className=' btn btn-md btn-outline-secondary'>Save</button>
+                                        <Link to='/' style={{borderRadius:10}} className="btn btn-md btn-outline-primary float-right">
                                             Back
                                         </Link>
                                 </form>

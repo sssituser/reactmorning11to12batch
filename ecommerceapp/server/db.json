@@ -1,18 +1,41 @@
 {
   "products": [
     {
-      "id": "4c50",
-      "pname": "Vijay ",
-      "pprice": "200000",
-      "pqty": "89",
-      "pimage": "https://wallpaper.dog/large/20588642.jpg"
-    },
-    {
       "id": "d19a",
       "pname": "Cobra",
       "pprice": "85000",
       "pqty": "6",
       "pimage": "https://shop.finebuy.co.in/wp-content/uploads/2023/06/cobra-700x652.webp"
+    },
+    {
+      "id": "a525",
+      "pname": "oppo mobile",
+      "pprice": "4000",
+      "pqty": "6",
+      "pimage": "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1677136564513/61700a6c726f389ef4ae2b1662ce6783.png"
+    },
+    {
+      "id": "3ab2",
+      "pname": "oppo mobile",
+      "pprice": "4",
+      "pqty": "4",
+      "pimage": "https://wallpaperaccess.com/full/4392124.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": "abcd",
+      "username": "kiran",
+      "password": "1234",
+      "email": "kirank@gmail.com",
+      "mobileno": "999999999"
+    },
+    {
+      "id": "6f82",
+      "username": "arunkumar",
+      "password": "123456",
+      "email": "allamarunkumar@gmaill.com",
+      "mobile": "9160521572"
     }
   ]
 }

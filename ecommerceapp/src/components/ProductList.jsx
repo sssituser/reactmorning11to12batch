@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import { Link,useNavigate } from "react-router-dom";
-
 export default function ProductList(){
 let[products,setProducts]=useState([]);
 let[search,setSearch]=useState("");
@@ -28,11 +27,8 @@ function prodlist(){
             alert(error)
         })
     }
-
 const filteredProducts = products
-
 .filter((prod)=>`${prod.id}${prod.pname}${prod.pqty}`
-
 .toLowerCase().includes(search.toLowerCase()))
 
 
@@ -42,29 +38,29 @@ const filteredProducts = products
     return(
         <React.Fragment>
             <section>
-                <div className="container">
+                <div className="container1">
                     <p className="lead">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ipsa ullam placeat eligendi? Corporis nihil fugiat tempora distinctio eveniet debitis ullam officia repudiandae sit autem necessitatibus est, omnis delectus odit fugit eum! Cumque facilis temporibus, vitae et veritatis nam a iure laboriosam at enim dolor ad dolore soluta perferendis fugit harum distinctio, eum reiciendis doloribus saepe nulla provident iste? Tenetur?
                     </p>
                     
                     <div className="row">
                         <div className="col-md-8">
-                            <Link to='/add' className="btn btn-primary btn-sm">Add</Link>
+                            <Link to='/add' style={{borderRadius:10}} className="btn btn-outline-primary btn-md rounded-btn">Add</Link>
                         </div>
                         <div className="col-md-4">
-                            <input type="text"
+                            <input type="text" style={{width:450}}
                             onChange={(event)=>{setSearch(event.target.value)}}
                             name="search" value={search} className="form-control" placeholder="ID/Name/Price"/>
                         </div>
                     </div>
                 </div>
             </section>
-          <div className="container mt-5">
+          <div className="mt-3">
               {
                 filteredProducts.length > 0 ?
                 
-                <table className="table table-bordered table-striped text-center">
-                    <thead className="bg-primary text-white">
+                <table style={{borderRadius:20,width:1550}} className="text-center"  border='1' cellPadding='3px' cellSpacing='4' >
+                    <thead style={{width:1000}} className="bg-primary text-white" >
                         <tr>
                             <th><b>ID</b></th>
                             <th><b>Name</b></th>
@@ -72,7 +68,8 @@ const filteredProducts = products
                             <th><b>Price</b></th>
                             <th><b>Quantity</b></th>
                             <th><b>Total</b></th>
-                            <th><b>Operations</b></th>
+                            <th><b>Actions</b></th>
+                            
                         </tr>
                     </thead>
                     <tbody>
